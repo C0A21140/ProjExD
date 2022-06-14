@@ -18,4 +18,5 @@ def kaito(x):
 def main():
     s = syutudai()
     kaito(s)
-
+if __name__ == "__main__":
+    main()
