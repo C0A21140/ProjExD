@@ -17,7 +17,8 @@ if __name__ == "__main__":
     entry.grid(columnspan = 3)
     c = 0
     r = 1
-    for i in range(9, -1, -1):
+    lt = [9,8,7,6,5,4,3,2,1,0,"+"]
+    for i in lt:
 
         btn = tk.Button(root, text = f"{i}",
                         width = 4, height = 2,
@@ -27,7 +28,12 @@ if __name__ == "__main__":
         btn.grid(row = r, column = c)
         btn.bind("<1>", btn_click)
         c += 1
-        if (i-1)%3 == 0:
+        try:
+            if (i-1)%3 == 0:
+                r += 1
+                c = 0
+        except TypeError:
             r += 1
-            c = 0
+
+        
     root.mainloop()
