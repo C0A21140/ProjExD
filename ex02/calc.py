@@ -8,9 +8,14 @@ def btn_click(event):
 if __name__ == "__main__":
     root = tk.Tk()
     root.title("電卓")
-    root.geometry("300x500")
+    root.geometry("300x600")
+
+    entry = tk.Entry(root, justify="right",
+                     width = 10,
+                      font = ("Times New Roman", 40))
+    entry.grid(columnspan = 3)
     c = 0
-    r = 0
+    r = 1
     for i in range(9, -1, -1):
 
         btn = tk.Button(root, text = f"{i}",
