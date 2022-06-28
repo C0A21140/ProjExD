@@ -11,7 +11,7 @@ def key_up(event):
     key = ""
     tori["file"] = "fig/0.png"
 
-def main_proc():
+def main_proc():#移動する方向によって画像が変わる
     global cx, cy, mx, my, tori
     if key == "Up":
         if meiro[my-1][mx] == 0:
@@ -45,7 +45,7 @@ if __name__ == "__main__":
     meiro = make.make_maze(15, 9)
     byouga = make.show_maze(canvas, meiro)
     mx, my = 1, 1
-    tori = tk.PhotoImage(file = "fig/0.png")
+    tori = tk.PhotoImage(file = "fig/0.png")#動いていないときの画像
     cx, cy = mx*100+50, my*100+50
     canvas.create_image(cx, cy, image = tori, tag = "tori")
     key = ""
