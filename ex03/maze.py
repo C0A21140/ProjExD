@@ -52,5 +52,4 @@ if __name__ == "__main__":
     root.bind("<KeyPress>", key_down)
     root.bind("<KeyRelease>", key_up)
     root.after(100, main_proc)
-
     root.mainloop()
