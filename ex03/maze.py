@@ -12,7 +12,7 @@ def key_up(event):
     tori["file"] = "fig/0.png"
 
 def main_proc():
-    global cx, cy, mx, my, tori, canvas
+    global cx, cy, mx, my, tori
     if key == "Up":
         if meiro[my-1][mx] == 0:
             tori["file"] = "fig/6.png"
