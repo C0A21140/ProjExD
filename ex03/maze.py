@@ -9,21 +9,32 @@ def key_down(event):
 def key_up(event):
     global key
     key = ""
+    tori["file"] = "fig/0.png"
 
 def main_proc():
-    global cx, cy, mx, my
+    global cx, cy, mx, my, tori, canvas
+    change = 1
     if key == "Up":
         if meiro[my-1][mx] == 0:
-            my -= 1    
+            if change == 1:
+                tori["file"] = "fig/6.png"
+                my -= 1
     elif key == "Down":
         if meiro[my+1][mx] == 0:
-            my += 1
+            if change == 1:
+                tori["file"] = "fig/8.png"
+                my += 1
     elif key == "Right":
         if meiro[my][mx+1] == 0:
-            mx += 1
+            if change == 1:
+                tori["file"] = "fig/2.png"
+                mx += 1
     elif key == "Left":
         if meiro[my][mx-1] == 0:
-            mx -= 1
+            if change == 1:
+                tori["file"] = "fig/3.png"
+                mx -= 1
+    
     cx, cy = mx*100+50, my*100+50
     canvas.coords("tori", cx, cy)
     root.after(100, main_proc)
