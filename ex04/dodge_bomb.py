@@ -43,13 +43,36 @@ def main():
             tori_rect.centerx -= 1
         if key [pg.K_RIGHT] == True:
             tori_rect.centerx += 1
+        if check_bound(tori_rect, screen_rect) != (1, 1):
+            if key [pg.K_UP] == True:
+                tori_rect.centery += 1
+            if key [pg.K_DOWN] == True:
+                tori_rect.centery -= 1
+            if key [pg.K_LEFT] == True:
+                tori_rect.centerx += 1
+            if key [pg.K_RIGHT] == True:
+                tori_rect.centerx -= 1
         screen.blit(tori_img, tori_rect)
         
         bomb_rect.move_ip(vx, vy)
         screen.blit(bomb_img, bomb_rect)
+        (yoko, tate) = check_bound(bomb_rect, screen_rect)
+        vx *= yoko
+        vy *= tate 
 
         pg.display.update()
         clock.tick(1000)
+
+
+def check_bound(rct, s_rct):  #rctはこうかとんか爆弾のrect  s_rctは画面のrect
+    yoko, tate = +1, +1
+    if rct.left < s_rct.left  or  s_rct.right < rct.right:
+        yoko = -1
+    if rct.top < s_rct.top  or  s_rct.bottom < rct.bottom:
+        tate = -1
+    return (yoko, tate)
+
+
 
 
 if __name__ == "__main__":
