@@ -1,4 +1,3 @@
-from http.client import TEMPORARY_REDIRECT
 import pygame as pg
 import sys
 
@@ -23,9 +22,20 @@ def main():
 
     while(True):
         screen. blit(bg_img, bg_rect)
-        screen.blit(tori_img, tori_rect)
+        #screen.blit(tori_img, tori_rect)
         for event in pg.event.get():
             if event.type == pg.QUIT: return
+
+        key = pg.key.get_pressed()
+        if key [pg.K_UP] == True:
+            tori_rect.centery -= 1
+        if key [pg.K_DOWN] == True:
+            tori_rect.centery += 1
+        if key [pg.K_LEFT] == True:
+            tori_rect.centerx -= 1
+        if key [pg.K_RIGHT] == True:
+            tori_rect.centerx += 1
+        screen.blit(tori_img, tori_rect)
         
         pg.display.update()
         clock.tick(1000)
