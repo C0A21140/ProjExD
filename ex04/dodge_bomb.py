@@ -18,10 +18,10 @@ def main():
     tori_rect = tori_img.get_rect()
     tori_rect.center = 900, 400
 
-    bomb_img = pg.Surface((20, 20))
-    #bomb_img = pg.image.load("fig/bomb2.png")
-    bomb_img.set_colorkey((0, 0, 0))
-    pg.draw.circle(bomb_img, (255, 0, 0), (10, 10), 10)
+    #bomb_img = pg.Surface((20, 20))
+    bomb_img = pg.image.load("fig/bakudan.png")
+    #bomb_img.set_colorkey((0, 0, 0))
+    #pg.draw.circle(bomb_img, (255, 0, 0), (10, 10), 10)
     bomb_rect = bomb_img.get_rect()
     bomb_rect.centerx = random.randint(0, screen_rect.width)
     bomb_rect.centery = random.randint(0, screen_rect.height)
@@ -62,6 +62,7 @@ def main():
         vy *= tate 
 
         if tori_rect.colliderect(bomb_rect):
+            clock.tick(0.5)
             return 
 
         pg.display.update()
