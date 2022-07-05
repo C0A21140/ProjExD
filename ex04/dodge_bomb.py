@@ -39,23 +39,23 @@ def main():
             if event.type == pg.QUIT: return
         #こうかとんの移動と描画
         key = pg.key.get_pressed()
-        if key [pg.K_UP] == True:
+        if key [pg.K_UP]:
             tori_rect.centery -= 1
-        if key [pg.K_DOWN] == True:
+        if key [pg.K_DOWN]:
             tori_rect.centery += 1
-        if key [pg.K_LEFT] == True:
+        if key [pg.K_LEFT]:
             tori_rect.centerx -= 1
-        if key [pg.K_RIGHT] == True:
+        if key [pg.K_RIGHT]:
             tori_rect.centerx += 1
         #こうかとんがはみ出ないようにする処理
         if check_bound(tori_rect, screen_rect) != (1, 1):
-            if key [pg.K_UP] == True:
+            if key [pg.K_UP]:
                 tori_rect.centery += 1
-            if key [pg.K_DOWN] == True:
+            if key [pg.K_DOWN]:
                 tori_rect.centery -= 1
-            if key [pg.K_LEFT] == True:
+            if key [pg.K_LEFT]:
                 tori_rect.centerx += 1
-            if key [pg.K_RIGHT] == True:
+            if key [pg.K_RIGHT]:
                 tori_rect.centerx -= 1
         screen.blit(tori_img, tori_rect)
         #爆弾の移動と描画
