@@ -40,23 +40,23 @@ def main():
         #こうかとんの移動と描画
         key = pg.key.get_pressed()
         if key [pg.K_UP]:
-            tori_rect.centery -= 1
+            tori_rect.move_ip(0, -1)
         if key [pg.K_DOWN]:
-            tori_rect.centery += 1
+            tori_rect.move_ip(0, 1)
         if key [pg.K_LEFT]:
-            tori_rect.centerx -= 1
+            tori_rect.move_ip(-1, 0)
         if key [pg.K_RIGHT]:
-            tori_rect.centerx += 1
+            tori_rect.move_ip(1, 0)
         #こうかとんがはみ出ないようにする処理
         if check_bound(tori_rect, screen_rect) != (1, 1):
             if key [pg.K_UP]:
-                tori_rect.centery += 1
+                tori_rect.move_ip(0, 1)
             if key [pg.K_DOWN]:
-                tori_rect.centery -= 1
+                tori_rect.move_ip(0, -1)
             if key [pg.K_LEFT]:
-                tori_rect.centerx += 1
+                tori_rect.move_ip(1, 0)
             if key [pg.K_RIGHT]:
-                tori_rect.centerx -= 1
+                tori_rect.move_ip(-1, 0)
         screen.blit(tori_img, tori_rect)
         #爆弾の移動と描画
         bomb_rect.move_ip(vx, vy)
