@@ -24,12 +24,13 @@ def main():
     bomb_rect = bomb_img.get_rect()
     bomb_rect.centerx = random.randint(0, screen_rect.width)
     bomb_rect.centery = random.randint(0, screen_rect.height)
+    vx, vy = +1, +1
 
 
 
     while(True):
         screen. blit(bg_img, bg_rect)
-        #screen.blit(tori_img, tori_rect)
+
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
@@ -44,6 +45,7 @@ def main():
             tori_rect.centerx += 1
         screen.blit(tori_img, tori_rect)
         
+        bomb_rect.move_ip(vx, vy)
         screen.blit(bomb_img, bomb_rect)
 
         pg.display.update()
