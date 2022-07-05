@@ -27,6 +27,9 @@ def main():
     bomb_rect.centery = random.randint(0, screen_rect.height)
     vx, vy = +1, +1
 
+    bakuhatu = pg.image.load("fig/bakuhatu2.png")
+    bakuhatu_rect = bakuhatu.get_rect()
+    bakuhatu_rect.center = 800, 450
 
 
     while(True):
@@ -60,8 +63,19 @@ def main():
         (yoko, tate) = check_bound(bomb_rect, screen_rect)
         vx *= yoko
         vy *= tate 
+        
+        if key [pg.K_1]:
+            if vx == -1:
+                bomb_img = pg.image.load("fig/bomb.png")
+            else:
+                    bomb_img = pg.image.load("fig/bomb2.png")
+        elif key [pg.K_0]:
+            bomb_img = pg.image.load("fig/bakudan.png")
+
 
         if tori_rect.colliderect(bomb_rect):
+            screen.blit(bakuhatu, bakuhatu_rect)
+            pg.display.update()
             clock.tick(0.5)
             return 
 
