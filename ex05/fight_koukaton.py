@@ -91,7 +91,7 @@ class Attack:
 
 def main():
     clock = pg.time.Clock()
-    a = 1
+    a = 1   #カウント
     scr = Screen("負けるな！こうかとん", (1600, 900), "fig/pg_bg.jpg")
     scr.blit()
 
@@ -105,12 +105,12 @@ def main():
         for event in pg.event.get():
             if event.type == pg.QUIT:
                 return
-            if event.type == pg.KEYDOWN and event.key == pg.K_SPACE: 
+            if event.type == pg.KEYDOWN and event.key == pg.K_SPACE: #スペースキーが押されたら
                 a = 0
                 wing = Attack(tori, +5)
         
-        if a == 0:
-            wing.update(scr)
+        if a == 0:  #カウントが0なら
+            wing.update(scr)  #羽を飛ばす
         tori.update(scr)
 
         baku.update(scr)
