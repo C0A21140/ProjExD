@@ -70,14 +70,14 @@ class Bomb:
         self.blit(scr)
 
 
-class Attack:
+class Attack: #羽を飛ばすクラス
     def __init__(self, tori: Bird, speed):
-        self.sfc = pg.image.load("fig/wing.png")
-        self.sfc = pg.transform.rotozoom(self.sfc, 2.0, 2.0)
-        self.rct = self.sfc.get_rect()
-        self.rct.centerx = tori.rct.centerx + 1
+        self.sfc = pg.image.load("fig/wing.png") #画像を取得
+        self.sfc = pg.transform.rotozoom(self.sfc, 2.0, 2.0) #画像を拡大
+        self.rct = self.sfc.get_rect() #レクト
+        self.rct.centerx = tori.rct.centerx + 1  #羽をこうかとんの右側に描画
         self.rct.centery = tori.rct.centery
-        self.vx, self.vy = speed, 0
+        self.vx, self.vy = speed, 0   #動くスピードを決定
 
     def blit(self, scr):
         scr.sfc.blit(self.sfc, self.rct)
